@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EGS Internship June–July – Final Evaluation</title>
+  <style>
+    :root{--bg:#0e1117;--card:#161b22;--text:#e6edf3;--muted:#9da6b2;--accent:#7c5cff;--accent2:#5b3df6;--ok:#2ea043;--warn:#f85149}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;color:var(--text);background:linear-gradient(180deg,#0b0e14 0,#0e1117 50%,#0b0e14 100%)}
+    header,footer{padding:14px 20px;text-align:center;color:var(--muted)}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px 20px}
+    .title{font-size:28px;font-weight:700;margin:8px 0 18px;text-align:center}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+    .card{background:var(--card);border:1px solid #232a34;border-radius:14px;padding:18px;overflow:hidden;position:relative}
+    .card h2{margin:0 0 6px}
+    .meta{color:var(--muted);font-size:14px;margin-bottom:10px}
+    .metric{margin:10px 0}
+    .metric .row{display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px}
+    .bar{height:12px;background:#0f131a;border:1px solid #232a34;border-radius:8px;overflow:hidden}
+    .fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2));box-shadow:0 0 10px rgba(124,92,255,.35) inset;animation:grow 1.2s cubic-bezier(.2,.8,.2,1) forwards}
+    .badge{display:inline-block;padding:4px 8px;border-radius:999px;border:1px solid #2b313b;background:#0f131a;font-size:12px;margin-right:6px}
+    .remark{margin-top:10px;font-style:italic;color:#cbd5e1}
+    .total{margin-top:12px;font-weight:700;font-size:16px}
+    .grade{margin-left:8px;padding:2px 8px;border-radius:999px;background:#0f131a;border:1px solid #2b313b}
+    .enter{opacity:.08;position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 40%, rgba(124,92,255,.15) 0%, rgba(124,92,255,0) 60%);animation:fadeIn .8s ease both}
+    @keyframes grow{from{width:0%}to{width:var(--pct, 100%)}}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+    .back{display:inline-block;margin:8px 0 16px;color:#a6b1c0;text-decoration:none}
+    .back:hover{color:#fff}
+    .counter{font-variant-numeric:tabular-nums}
+    .sub{color:#9aa3af;margin-top:4px}
+  </style>
+</head>
+<body>
+  <header>EGS Internship June–July – Final Evaluation</header>
+  <div class="wrap">
+    <a class="back" href="{{ url_for('home') }}#progress">← Back to Progress</a>
+    <div class="title">EGS Internship June–July</div>
+    <div class="grid">
+      {% for s in [indira, shwet] %}
+      <div class="card" style="animation:fadeIn .6s ease {{ loop.index0 * 0.15 }}s both;">
+        <div class="enter"></div>
+        <h2>{{ s.name }}</h2>
+        <div class="meta">
+          <span class="badge">{{ s.code }}</span>
+          <span class="badge">Grade: {{ s.grade }}</span>
+        </div>
+
+        {% set metrics = [
+          ('Assignment', s.assignment, 10, 'Quality and completeness of assigned tasks'),
+          ('Punctuality', s.punctuality, 10, 'On-time attendance and submissions'),
+          ('Attendance', s.attendance, 10, 'Presence across sessions'),
+          ('Problem Solving', s.problem_solving, 10, 'Approach, rigor, and correctness'),
+          ('Presentation', s.presentation, 10, 'Clarity and delivery')
+        ] %}
+
+        {% for label, val, maxv, note in metrics %}
+        {% set pct = (val / maxv * 100) if maxv else 0 %}
+        <div class="metric">
+          <div class="row">
+            <div>{{ label }}</div>
+            <div class="counter">{{ '%.2f' % val }}/{{ maxv }}</div>
+          </div>
+          <div class="bar">
+            <div class="fill" style="--pct: {{ '%.2f' % pct }}%; animation-delay: {{ loop.index0 * 0.12 }}s;"></div>
+          </div>
+          <div class="sub">{{ note }}</div>
+        </div>
+        {% endfor %}
+
+        <div class="total">
+          Total: <span class="counter">{{ '%.2f' % s.total }}</span>/10
+          <span class="grade">{{ s.grade }}</span>
+        </div>
+        <div class="remark">{{ s.remark }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <footer>&copy; E2R~Online, All rights are reserved 2025.</footer>
+  <script>
+    // Animate numbers counting up
+    document.querySelectorAll('.counter').forEach(el => {
+      const text = el.textContent.trim();
+      const num = parseFloat(text);
+      if (isNaN(num)) return;
+      const unit = text.includes('/10') ? '/10' : '';
+      const target = parseFloat(text.replace('/10',''));
+      let cur = 0;
+      const steps = 30, inc = target / steps;
+      const interval = setInterval(() => {
+        cur += inc;
+        if (cur >= target) { cur = target; clearInterval(interval); }
+        const v = (Math.round(cur * 100) / 100).toFixed(2);
+        el.textContent = unit ? (v + unit) : v;
+      }, 20);
+    });
+  </script>
+</body>
+</html>

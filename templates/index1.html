@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>E2R Online – End Intern Submission</title>
+  <style>
+    :root{--bg:#0e1117;--card:#161b22;--text:#e6edf3;--muted:#9da6b2;--accent:#2f81f7;--accent2:#1f6feb;--ok:#2ea043;--warn:#f85149}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;color:var(--text);background:linear-gradient(180deg,#0b0e14 0,#0e1117 50%,#0b0e14 100%)}
+    header{position:sticky;top:0;z-index:1000;background:rgba(14,17,23,.7);backdrop-filter:blur(6px);border-bottom:1px solid #232a34}
+    .nav{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:14px}
+    .nav img{height:36px}
+    .spacer{flex:1}
+    .nav a{color:var(--muted);text-decoration:none;margin-left:16px}
+    .nav a:hover{color:var(--text)}
+    .hero{min-height:64vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 20px;background:radial-gradient(60% 60% at 50% 40%,rgba(47,129,247,.12) 0%,rgba(47,129,247,0) 60%)}
+    .hero h1{margin:0 0 10px;font-size:38px}
+    .hero p{margin:0 0 20px;color:var(--muted)}
+    .cta a{display:inline-block;margin:0 6px;padding:10px 14px;border-radius:10px;border:1px solid #2b313b;text-decoration:none;color:var(--text)}
+    .cta a.primary{background:var(--accent);border-color:var(--accent2)}
+    section{padding:56px 20px}
+    .container{max-width:1100px;margin:0 auto}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+    .card{background:var(--card);border:1px solid #232a34;border-radius:14px;padding:16px}
+    .card h3{margin:0 0 6px}
+    .card a{color:var(--accent);text-decoration:none}
+    .card a:hover{text-decoration:underline}
+    .form-wrap{background:var(--card);border:1px solid #232a34;border-radius:14px;padding:20px}
+    .form-wrap h2{margin:0 0 10px}
+    .note{font-size:13px;color:#caa;border-left:3px solid var(--warn);padding-left:10px;margin:8px 0 16px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+    .grid-1{display:grid;grid-template-columns:1fr;gap:12px}
+    label{font-size:14px;color:var(--muted);display:block;margin-bottom:6px}
+    input[type=text],input[type=email],select,textarea,input[type=file]{width:100%;padding:10px 12px;border-radius:10px;border:1px solid #2b313b;background:#0f131a;color:var(--text)}
+    textarea{min-height:110px;resize:vertical}
+    .radio-row{display:flex;gap:18px;align-items:center}
+    .btn{background:var(--accent);border:1px solid var(--accent2);color:#fff;padding:10px 16px;border-radius:10px;cursor:pointer}
+    .quote{font-style:italic;color:#c9d1d9;border-left:3px solid var(--accent);padding-left:12px;margin-top:18px}
+    .flash{margin-bottom:12px;padding:10px 12px;border-radius:10px;font-size:14px}
+    .flash.error{background:rgba(248,81,73,.1);border:1px solid var(--warn);color:#ffb4ae}
+    .flash.success{background:rgba(46,160,67,.12);border:1px solid var(--ok);color:#a7e3b8}
+    footer{padding:28px 20px;text-align:center;color:var(--muted);border-top:1px solid #232a34;background:#0b0e14}
+  </style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="E2R Online Logo">
+    <div class="spacer"></div>
+    <nav>
+      <a href="#welcome">Welcome</a>
+      <a href="#services">Services</a>
+      <a href="#submit">End Intern Submission</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+<section id="welcome" class="hero">
+  <div>
+    <h1>Welcome to E2R Online Intern Portal</h1>
+    <p>Industrial, Academic and Research-driven technology solutions.</p>
+    <div class="cta">
+      <a class="primary" href="http://e2r-online.com/" target="_blank" rel="noopener">Visit us</a>
+      <a href="#submit">Go to End Intern Submission</a>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <h2>We are providing</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Industrial Solutions</h3>
+        <a href="http://e2r-online.com/#tab-1" target="_blank" rel="noopener">Explore Industrial Solutions</a>
+      </div>
+      <div class="card">
+        <h3>Academic Solutions</h3>
+        <a href="http://e2r-online.com/#tab-2" target="_blank" rel="noopener">Explore Academic Solutions</a>
+      </div>
+      <div class="card">
+        <h3>Research & Thesis</h3>
+        <a href="http://e2r-online.com/#tab-3" target="_blank" rel="noopener">Explore Research & Thesis</a>
+      </div>
+      <div class="card">
+        <h3>Training & Learning</h3>
+        <a href="http://e2r-online.com/#tab-4" target="_blank" rel="noopener">Explore Training & Learning</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="submit">
+  <div class="container">
+    <div class="form-wrap">
+      <h2>End Intern Submission</h2>
+      <div class="note">Important: Once submitted, entries cannot be edited or changed.</div>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, msg in messages %}
+            <div class="flash {{ category }}">{{ msg }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      <form action="/submit" method="POST" enctype="multipart/form-data">
+        <div class="grid-2">
+          <div>
+            <label for="name">Full Name</label>
+            <input id="name" name="name" type="text" placeholder="Enter your full name" required>
+          </div>
+          <div>
+            <label for="email">Email Address</label>
+            <input id="email" name="email" type="email" placeholder="name@example.com" required>
+          </div>
+        </div>
+        <div class="grid-2">
+  <div>
+    <label for="email">Email Address</label>
+    <input id="email" name="email" type="email" placeholder="name@example.com" required>
+  </div>
+  <div>
+    <label for="unid">UNID (auto)</label>
+    <input id="unid" name="unid" type="text" placeholder="Auto-filled from email" readonly>
+    <div class="hint" style="font-size:12px;color:#9da6b2;"> Are Auto Mapped</div>
+  </div>
+</div>
+        <div class="grid-3">
+          <div>
+            <label for="state">State</label>
+            <select id="state" name="state" required>
+              <option value="">Select state</option>
+              <option>Andhra Pradesh</option>
+              <option>Arunachal Pradesh</option>
+              <option>Assam</option>
+              <option>Bihar</option>
+              <option>Chhattisgarh</option>
+              <option>Goa</option>
+              <option>Gujarat</option>
+              <option>Haryana</option>
+              <option>Himachal Pradesh</option>
+              <option>Jharkhand</option>
+              <option>Karnataka</option>
+              <option>Kerala</option>
+              <option>Madhya Pradesh</option>
+              <option>Maharashtra</option>
+              <option>Manipur</option>
+              <option>Meghalaya</option>
+              <option>Mizoram</option>
+              <option>Nagaland</option>
+              <option>Odisha</option>
+              <option>Punjab</option>
+              <option>Rajasthan</option>
+              <option>Sikkim</option>
+              <option>Tamil Nadu</option>
+              <option>Telangana</option>
+              <option>Tripura</option>
+              <option>Uttar Pradesh</option>
+              <option>Uttarakhand</option>
+              <option>West Bengal</option>
+              <option>Andaman and Nicobar Islands</option>
+              <option>Chandigarh</option>
+              <option>Dadra and Nagar Haveli and Daman and Diu</option>
+              <option>Delhi</option>
+              <option>Jammu and Kashmir</option>
+              <option>Ladakh</option>
+              <option>Lakshadweep</option>
+              <option>Puducherry</option>
+            </select>
+          </div>
+          <div>
+            <label for="district">District</label>
+            <input id="district" name="district" type="text" placeholder="Enter district" required>
+          </div>
+          <div>
+            <label for="town">Town/City</label>
+            <input id="town" name="town" type="text" placeholder="Enter town or city" required>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <label for="role">Current Status</label>
+            <select id="role" name="role" required>
+              <option value="">Select</option>
+              <option value="Student">Student</option>
+              <option value="Professional">Professional</option>
+            </select>
+          </div>
+          <div>
+            <label for="organization">Organization (College/University/Company)</label>
+            <input id="organization" name="organization" type="text" placeholder="e.g.,E2R" required>
+          </div>
+        </div>
+
+        <div class="grid-1">
+          <div>
+            <label for="report">Upload Report (PDF/DOCX)</label>
+            <input id="report" name="report" type="file" accept=".pdf,.docx" required>
+          </div>
+        </div>
+
+        <div class="grid-1">
+          <div>
+            <label for="journey">Your Experience with E2R</label>
+            <textarea id="journey" name="journey" placeholder="Describe your overall journey, highlights, and outcomes." required></textarea>
+          </div>
+        </div>
+
+        <div class="grid-1">
+          <div>
+            <label for="challenges">Key Challenges Encountered</label>
+            <textarea id="challenges" name="challenges" placeholder="Mention the main challenges and how you approached them." required></textarea>
+          </div>
+        </div>
+
+        <div class="grid-1">
+          <div>
+            <label>Would you like to work with us again in the future?</label>
+            <div class="radio-row">
+              <label><input type="radio" name="work_again" value="Yes" required> Yes</label>
+              <label><input type="radio" name="work_again" value="No" required> No</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-1">
+          <div>
+            <label for="learnings">What You Learned During This Internship</label>
+            <textarea id="learnings" name="learnings" placeholder="List key skills, tools, and concepts you gained." required></textarea>
+          </div>
+        </div>
+
+        <div class="grid-1">
+          <button class="btn" type="submit">Submit</button>
+        </div>
+      </form>
+
+      <p class="quote">"The master has failed more times than the beginner has even tried."</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="cards">
+      <div class="card">
+        <h3>Contact Us</h3>
+        <a href="http://e2r-online.com/contactus.php" target="_blank" rel="noopener" title="Contact E2R">☎ Click to contact</a>
+      </div>
+      <div class="card">
+        <h3>Visit Us</h3>
+        <a href="http://e2r-online.com/" target="_blank" rel="noopener" title="Visit E2R">↗ Visit site</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="progress">
+  <div class="container">
+    <div class="form-wrap">
+      <h2>View Progress</h2>
+      <form action="/progress" method="POST">
+        <div class="grid-3">
+          <div>
+            <label for="p_email">Email</label>
+            <input id="p_email" name="p_email" type="email" placeholder="Enter your registered email" required>
+          </div>
+          <div>
+            <label for="p_unid">UNID</label>
+            <input id="p_unid" name="p_unid" type="text" placeholder="E2R/INT/2025/08/00X" required>
+          </div>
+          <div>
+            <label for="p_month">Select Month</label>
+            <select id="p_month" name="p_month" required>
+              <option value="">Select</option>
+              <option>June</option>
+              <option>July</option>
+              <option>June+July Common</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid-1" style="margin-top:12px;">
+          <button class="btn" type="submit">View</button>
+        </div>
+      </form>
+
+      {% if progress_view %}
+        {% if progress_view.mode == 'month' %}
+          <div style="margin-top:16px;">
+            <h3>{{ progress_view.person }} – {{ progress_view.month }} Attendance</h3>
+            <div style="overflow:auto; border:1px solid #232a34; border-radius:10px;">
+              <table style="width:100%; border-collapse:collapse;">
+                <thead>
+                  <tr style="background:#12161f;">
+                    <th style="padding:8px; border-bottom:1px solid #232a34; text-align:left;">Date</th>
+                    <th style="padding:8px; border-bottom:1px solid #232a34; text-align:left;">Present</th>
+                    <th style="padding:8px; border-bottom:1px solid #232a34; text-align:left;">Minutes of Meeting</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for row in progress_view.attendance %}
+                    <tr style="animation: fadeIn 0.3s ease {{ loop.index0 * 20 }}ms both;">
+                      <td style="padding:8px; border-bottom:1px solid #232a34;">{{ row.date }}</td>
+                      <td style="padding:8px; border-bottom:1px solid #232a34;">{{ row.present }}</td>
+                      <td style="padding:8px; border-bottom:1px solid #232a34;">{{ row.minutes }}</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+
+            {% if progress_view.summary_line %}
+              <p class="quote" style="margin-top:12px;">{{ progress_view.summary_line }}</p>
+            {% endif %}
+            {% if progress_view.final_honor_score %}
+              <p style="margin-top:8px;"><strong>Respective person final honor score:</strong> {{ progress_view.final_honor_score }}</p>
+            {% endif %}
+          </div>
+        {% elif progress_view.mode == 'common' %}
+          {% set s = progress_view.summary %}
+          <div style="margin-top:16px;">
+            <h3>{{ s.title }}</h3>
+            <p><strong>{{ s.name }} {{ s.code }}:</strong></p>
+            <ul style="list-style:disc; margin-left:18px;">
+              <li>Assignment score: {{ s.assignment }}</li>
+              <li>Punctuality score: {{ s.punctuality }}</li>
+              <li>Attendance: {{ s.attendance }}</li>
+              <li>Problem solving: {{ s.problem_solving }}</li>
+              <li>Presentation: {{ s.presentation }}</li>
+              <li>Total score: {{ s.total }}</li>
+              <li>Grade: {{ s.grade }}</li>
+              <li>Remark: {{ s.remark }}</li>
+            </ul>
+
+            <!-- Simple animated bars -->
+            <div style="margin-top:12px;">
+              {% set metrics = [
+                ('Assignment', s.assignment, 10),
+                ('Punctuality', s.punctuality, 10),
+                ('Attendance', s.attendance, 10),
+                ('Problem Solving', s.problem_solving, 10),
+                ('Presentation', s.presentation, 10),
+                ('Total', s.total, 10),
+              ] %}
+              {% for label, val, maxv in metrics %}
+                {% set pct = (val / maxv * 100) if maxv else 0 %}
+                <div style="margin:8px 0;">
+                  <div style="display:flex; justify-content:space-between; font-size:14px;">
+                    <span>{{ label }}</span><span>{{ '%.2f' % val }}/{{ maxv }}</span>
+                  </div>
+                  <div style="height:10px; background:#0f131a; border:1px solid #232a34; border-radius:6px; overflow:hidden;">
+                    <div style="height:100%; width:0%; background:#2f81f7; animation: growBar 1s ease forwards; animation-delay: {{ loop.index0 * 0.08 }}s;" data-target="{{ '%.2f' % pct }}"></div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+@keyframes growBar { from { width: 0%; } to { width: var(--target, 100%); } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+<script>
+  // Auto-fill UNID based on Email in the submission form
+  const emailInput = document.getElementById('email');
+  const unidInput = document.getElementById('unid');
+  if (emailInput && unidInput) {
+    emailInput.addEventListener('change', async () => {
+      const emailVal = emailInput.value.trim();
+      try {
+        const resp = await fetch('/get-unid', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({email: emailVal})
+        });
+        const data = await resp.json();
+        unidInput.value = data.unid || '';
+      } catch (e) {
+        unidInput.value = '';
+      }
+    });
+  }
+
+  // Animate bars in common summary by setting CSS var to target width
+  document.querySelectorAll('div[data-target]').forEach(el => {
+    const pct = el.getAttribute('data-target') || '0';
+    el.style.setProperty('--target', pct + '%');
+  });
+</script>
+
+<footer> &copy; E2R~Online, All rights are reserved <span id="yr"></span>. </footer> <script> document.getElementById("yr").textContent = new Date().getFullYear(); </script>
+</body>
+</html>
