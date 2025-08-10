@@ -63,7 +63,7 @@ def upload_to_cloudinary(local_path: str, public_id: str | None = None, resource
 # UNID mapping
 EMAIL_UNID_MAP = {
     "indira2005bhattacharjee@gmail.com": "E2R/INT/2025/08/001",
-    "shwetpurwar0911@gmailcom": "E2R/INT/2025/08/002",
+    "shwetpurwar0911@gmail.com": "E2R/INT/2025/08/002",
     "info@e2r-online.com": "E2R-HR",
     "kumar07shashank@gmail.com":"-INSIDER",
     "purwar07khushboo@gmail.com":"-INSIDER",
