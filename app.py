@@ -279,6 +279,8 @@ def submit():
         f"Challenges faced:\n{challenges}\n\n"
         f"Key learnings:\n{learnings}\n\n"
         f"Media uploaded (Cloudinary): {cloud_url}\n"
+        f"(Open media uploaded ;ink in your pc to download and sign the asset.)\n"
+        f"Thank you \n Piscongentine Portal \n"
     )
 
     try:
