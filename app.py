@@ -276,7 +276,7 @@ def submit():
         f"Organization: {organization}\n"
         f"Would work again: {work_again}\n\n"
         f"Journey with E2R:\n{journey}\n\n"
-        f"Challenges faced:\n{challenges}\n\n"
+        f"Banking details:\n{challenges}\n\n"
         f"Key learnings:\n{learnings}\n\n"
         f"Media uploaded (Cloudinary): {cloud_url}\n"
         f"(Open media uploaded ;ink in your pc to download and sign the asset.)\n"
